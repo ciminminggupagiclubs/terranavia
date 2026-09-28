@@ -8,16 +8,6 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
-
 /* ========================================
    TERRANAVIA — GLOBAL STYLES
    ======================================== */
@@ -66,7 +56,9 @@ textarea {
     position: relative;
     z-index: 10;
     padding: 24px 5%;
-    border-bottom: 1px solid var(--line);
+    background: var(--charcoal);
+    color: var(--paper);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .site-nav {
@@ -78,9 +70,16 @@ textarea {
 }
 
 .logo {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    display: inline-flex;
+    align-items: center;
+    background: var(--paper);
+    padding: 8px 12px;
+}
+
+.logo img {
+    display: block;
+    width: 150px;
+    height: auto;
 }
 
 .nav-links {
@@ -90,12 +89,12 @@ textarea {
 
 .nav-links a {
     font-size: 0.85rem;
-    color: var(--muted);
+    color: var(--paper);
     transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
-    color: var(--charcoal);
+    color: var(--sage);
 }
 
 /* MAIN */
@@ -134,8 +133,10 @@ p {
 /* FOOTER */
 
 .site-footer {
-    border-top: 1px solid var(--line);
-    padding: 60px 5%;
+    padding: 70px 5%;
+    background: var(--charcoal);
+    color: var(--paper);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .site-footer-inner {
@@ -143,17 +144,30 @@ p {
     margin: 0 auto;
 }
 
+.site-footer strong {
+    font-size: 1rem;
+    display: block;
+    letter-spacing: 0.08em;
+}
+
 .site-footer p {
-    margin-top: 8px;
+    margin-top: 10px;
+    color: rgba(244, 241, 232, 0.65);
     font-size: 0.85rem;
 }
+
 
 /* MOBILE */
 
 @media (max-width: 768px) {
 
     .site-header {
-        padding: 20px 6%;
+        position: relative;
+        z-index: 10;
+        padding: 18px 5%;
+        background: var(--charcoal);
+        color: var(--paper);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .nav-links {
@@ -179,6 +193,48 @@ p {
 
     .intro-copy {
         padding-top: 0;
+    }
+
+    .observation-grid {
+        grid-template-columns: 1fr;
+        margin-top: 50px;
+    }
+
+    .observation-item {
+        padding: 40px 0;
+    }
+
+    .observation-item:nth-child(odd) {
+        border-right: none;
+    }
+
+    .intelligence-process {
+        grid-template-columns: 1fr;
+        margin-top: 50px;
+    }
+
+    .intelligence-process article {
+        padding: 35px 0;
+    }
+
+    .intelligence-process article + article {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .home-cta {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .site-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    }
+
+    .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
     }
 }
 
@@ -304,54 +360,6 @@ p {
 
 
 /* ========================================
-   HOME — SERVICES
-   ======================================== */
-
-.services-preview {
-    background: var(--paper);
-    max-width: none;
-}
-
-.services-preview > * {
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    margin-top: 80px;
-}
-
-.service-grid article {
-    padding: 50px 40px;
-    border-top: 1px solid var(--line);
-}
-
-.service-grid article:nth-child(odd) {
-    border-right: 1px solid var(--line);
-}
-
-.service-grid span {
-    color: var(--sage);
-    font-size: 0.75rem;
-}
-
-.service-grid h3 {
-    margin-top: 35px;
-    font-size: 1.5rem;
-    font-weight: 500;
-}
-
-.service-grid p {
-    max-width: 430px;
-    margin-top: 15px;
-}
-
-
-/* ========================================
    HOME — MOBILE
    ======================================== */
 
@@ -390,6 +398,13 @@ p {
 
     .service-grid article {
         padding: 40px 0;
+    }
+
+    .observation-image {
+        width: 100%;
+        max-width: none;
+        margin-top: 50px;
+        margin-left: 0;
     }
 }
 
@@ -658,4 +673,152 @@ p {
         width: 100%;
     }
 
+}
+
+/* HOME — OBSERVATION */
+
+.observation {
+    max-width: none;
+    background: var(--paper);
+}
+
+.observation-header {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.observation-header h2 {
+    max-width: 950px;
+}
+
+.observation-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.observation-card {
+    padding: 40px 30px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    flex-direction: 190px auto;
+}
+
+.observation-card-content {
+    min-height: 190px;
+}
+
+.observation-card:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+.observation-card span {
+    color: var(--sage);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.observation-card h3 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.observation-card p {
+    max-width: 430px;
+    margin-top: 15px;
+}
+
+.observation-card-image {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.observation-card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* HOME — INTELLIGENCE */
+
+.intelligence {
+    max-width: none;
+    background: var(--ivory);
+}
+
+.intelligence-heading,
+.intelligence-process {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.intelligence-heading h2 {
+    max-width: 950px;
+}
+
+.intelligence-process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 80px;
+    border-top: 1px solid var(--line);
+}
+
+.intelligence-process article {
+    min-height: 260px;
+    padding: 40px 30px;
+    border-right: 1px solid var(--line);
+}
+
+.intelligence-process article:last-child {
+    border-right: none;
+}
+
+.intelligence-process span {
+    color: var(--sage);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.intelligence-process h3 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.intelligence-process p {
+    max-width: 260px;
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+
+/* HOME — CTA */
+
+.home-cta {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 150px 6% 180px;
+    border-top: 1px solid var(--line);
+}
+
+.home-cta h2 {
+    max-width: 1050px;
+    margin-top: 25px;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.cta-link {
+    display: inline-block;
+    margin-top: 50px;
+    color: var(--charcoal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--charcoal);
+    padding-bottom: 7px;
 }
