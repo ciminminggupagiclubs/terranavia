@@ -15,11 +15,14 @@
 :root {
     --ivory: #f4f1e8;
     --paper: #faf9f5;
+    --dust: #f5eab3;
+    --desert: #f4dc94;
     --charcoal: #20231f;
     --muted: #6f746d;
-    --sage: #7d8f78;
+    --sage: #85be6f;
     --forest: #304b3b;
     --line: #d9d8cf;
+    --darkness: #000000;
 }
 
 * {
@@ -56,9 +59,11 @@ textarea {
     position: relative;
     z-index: 10;
     padding: 24px 5%;
-    background: var(--charcoal);
-    color: var(--paper);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(
+        135deg, #f4dc94 0%, #304b3b 40%, #000000 100%
+    );
+    color: var(--darkness);
+    border-bottom: 1px solid rgba(32, 31, 0, 0.12);
 }
 
 .site-nav {
@@ -70,10 +75,20 @@ textarea {
 }
 
 .logo {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    background: var(--paper);
-    padding: 8px 12px;
+    isolation: isolate;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    background: rgba(255, 250, 235, 0.25);
+    filter: blur(22px);
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .logo img {
@@ -310,6 +325,11 @@ p {
 
 .intro {
     max-width: 1400px;
+    background: radial-gradient(
+        ellipse at center,
+         #f4dc94 0%,
+         #f4f1e8 100%
+    );
     padding-top: 150px;
     padding-bottom: 150px;
 }
@@ -451,6 +471,136 @@ p {
 
 .about-copy p + p {
     margin-top: 28px;
+}
+
+/* ABOUT STATEMENT */
+.about-statement {
+    max-width: none;
+    padding: 140px 5% 160px;
+    background: linear-gradient(
+        to bottom,
+        #f1f3f3 0%,
+        #e8ebed 55%,
+        #dfe2e3 100%
+    );
+}
+
+.about-statement p {
+    margin: 0;
+    font-size: clamp(4rem, 9vw, 9rem);
+    font-weight: 400;
+    line-height: .9;
+    letter-spacing: -.06em;
+}
+
+.about-statement p:nth-child(2) {
+    margin-left: 18%;
+}
+
+.about-statement p:nth-child(3) {
+    margin-left: 32%;
+    color: var(--forest);
+}
+
+/* ABOUT — VISION & MISSION */
+
+.about-vision {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 10%;
+    padding: 130px 5%;
+    background: linear-gradient(
+        to bottom,
+        #eef1eb 0%,
+        #f3f4ef 55%,
+        #faf9f5 100%
+    );
+}
+
+.about-vision-item h2 {
+    max-width: 850px;
+    margin-top: 25px;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.about-vision-item > p:not(.section-label) {
+    max-width: 520px;
+    margin-top: 45px;
+    line-height: 1.8;
+}
+
+/* ABOUT — PRINCIPLES */
+
+.about-principles {
+    max-width: none;
+    padding: 130px 5% 150px;
+    background: var(--paper);
+}
+
+.about-principles-heading {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-principles-heading h2 {
+    max-width: 950px;
+    margin-top: 25px;
+}
+
+.about-principles-list {
+    max-width: 1400px;
+    margin: 80px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+}
+
+.about-principles-list article {
+    min-height: 250px;
+    padding: 35px 30px;
+    border-right: 1px solid var(--line);
+}
+
+.about-principles-list article:last-child {
+    border-right: none;
+}
+
+.about-principles-list span {
+    color: var(--sage);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.about-principles-list h3 {
+    margin-top: 35px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.about-principles-list p {
+    max-width: 280px;
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+/* ABOUT - VISUAL */
+.about-visual {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    background: var(--paper);
+}
+
+.about-visual img {
+    display: block;
+    width: 100vw;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
 }
 
 @media (max-width: 768px) {
@@ -679,7 +829,12 @@ p {
 
 .observation {
     max-width: none;
-    background: var(--paper);
+    background: linear-gradient(
+        to bottom,
+        #faf9f5 0%,
+        #f7f6f7 55%,
+        #e5e2d1 100%
+    );
 }
 
 .observation-header {
@@ -747,7 +902,12 @@ p {
 
 .intelligence {
     max-width: none;
-    background: var(--ivory);
+    background: linear-gradient(
+        to bottom,
+        #f6f5f0 0%,
+        #b4c5d5 55%,
+        #c5c9c3 100%
+    );
 }
 
 .intelligence-heading,
@@ -804,6 +964,12 @@ p {
     margin: 0 auto;
     padding: 150px 6% 180px;
     border-top: 1px solid var(--line);
+    background: linear-gradient(
+        to bottom,
+        #e7e8e5 0%,
+        #f0f0ed 50%,
+        #faf9f5 100%
+    ) ;
 }
 
 .home-cta h2 {
@@ -817,8 +983,8 @@ p {
 .cta-link {
     display: inline-block;
     margin-top: 50px;
-    color: var(--charcoal);
+    color: var(--forest);
     text-decoration: none;
-    border-bottom: 1px solid var(--charcoal);
+    border-bottom: 1px solid var(--sage);
     padding-bottom: 7px;
 }

@@ -62,4 +62,85 @@
 
 </section>
 
+<section class="about-statement">
+
+    <p>OBSERVE.</p>
+    <p>UNDERSTAND.</p>
+    <p>INFORM.</p>
+
+</section>
+
+
+<section class="about-vision">
+
+    <div class="about-vision-item">
+        <p class="section-label">OUR VISION</p>
+
+        <h2>
+            A clearer understanding
+            of the world we share.
+        </h2>
+    </div>
+
+    <div class="about-vision-item">
+        <p class="section-label">OUR MISSION</p>
+
+        <p>
+            To transform Earth observation and geospatial
+            data into clear, meaningful spatial intelligence
+            that helps people better understand the world
+            around them.
+        </p>
+    </div>
+
+</section>
+
+
+<section class="about-principles">
+
+    <div class="about-principles-heading">
+        <p class="section-label">OUR PRINCIPLES</p>
+
+        <h2>
+            How we approach
+            spatial intelligence.
+        </h2>
+    </div>
+
+    <div class="about-principles-list">
+        <article>
+            <span>01</span>
+            <h3>Clarity</h3>
+            <p>
+                Making complex geographic information
+                easier to understand.
+            </p>
+        </article>
+
+        <article>
+            <span>02</span>
+            <h3>Context</h3>
+            <p>
+                Looking beyond individual data points
+                to understand place, time, and change.
+            </p>
+        </article>
+
+        <article>
+            <span>03</span>
+            <h3>Purpose</h3>
+            <p>
+                Turning observation into information
+                that can support meaningful decisions.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section class="about-visual">
+    <img src="{{ asset('images/about-earth.jpg') }}"
+    alt="Aerial view of the Earth"
+    >
+</section>
+
 @endsection
