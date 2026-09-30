@@ -4,26 +4,32 @@
 
 @section('content')
 
-<section class="page-hero">
+<section class="page-hero about-hero">
+    <div class="about-hero-content">
+        <p class="section-label">
+            ABOUT TERRANAVIA
+        </p>
 
-    <p class="section-label">
-        ABOUT TERRANAVIA
-    </p>
+        <h1>
+            We turn Earth observation
+            into spatial intelligence.
+        </h1>
 
-    <h1>
-        We turn Earth observation
-        into spatial intelligence.
-    </h1>
+        <p class="page-intro">
+            Terranavia is an Earth Observation and Geospatial
+            Intelligence company focused on helping organizations
+            understand places, environments, and changing
+            landscapes through better data.
+        </p>
+    </div>
 
-    <p class="page-intro">
-        Terranavia is an Earth Observation and Geospatial
-        Intelligence company focused on helping organizations
-        understand places, environments, and changing
-        landscapes through better data.
-    </p>
-
+    <div class="about-hero-image">
+        <img
+            src="{{ asset('images/about-header.png') }}"
+            alt="Earth observation and geospatial intelligence"
+        >
+    </div>
 </section>
-
 
 <section class="about-story">
 
@@ -99,6 +105,13 @@
 <section class="about-principles">
 
     <div class="about-principles-heading">
+
+    <img
+        src="{{ asset('images/about-principles.jpg') }}"
+        alt="Geospatial mapping and spatial intelligence"
+    >
+
+    <div class="about-principles-heading-content">
         <p class="section-label">OUR PRINCIPLES</p>
 
         <h2>
@@ -106,6 +119,8 @@
             spatial intelligence.
         </h2>
     </div>
+
+</div>
 
     <div class="about-principles-list">
         <article>
